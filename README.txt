@@ -1,0 +1,1 @@
+Application that manages the database of a bank and offers a web environment for data manipulation.
