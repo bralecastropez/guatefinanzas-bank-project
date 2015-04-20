@@ -21,12 +21,20 @@ namespace Project_GuateFinanzas.Models
         {
         }
 
+        public System.Data.Entity.DbSet<Person> Persons { get; set; }
+        public System.Data.Entity.DbSet<BankAccount> BankAccounts { get; set; }
+        public System.Data.Entity.DbSet<AccountMovement> AccountMovements { get; set; }
+        public System.Data.Entity.DbSet<DebitCard> DebitCards { get; set; }
+        public System.Data.Entity.DbSet<CreditCard> CreditCards { get; set; }
+        public System.Data.Entity.DbSet<Loan> Loans { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            //modelBuilder.Entity<Course>()
-            //    .HasMany(c => c.Instructors).WithMany(i => i.Courses)
+            //modelBuilder.Entity<Person>()
+            //    .HasMany(p => p.BankAccounts).WithRequired(per => per.Person);
+                //.HasMany(p => p.BankAccount).WithMany(i => i.Courses)
             //    .Map(t => t.MapLeftKey("CourseID")
             //        .MapRightKey("InstructorID")
             //        .ToTable("CourseInstructor"));

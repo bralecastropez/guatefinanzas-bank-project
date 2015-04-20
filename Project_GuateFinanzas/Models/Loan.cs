@@ -11,6 +11,8 @@ namespace Project_GuateFinanzas.Models
         [Display(Name = "Loan code")]
         public int ID { get; set; }
 
+        [Required]
+        [DisplayFormat(DataFormatString = "0:dd-MM-yyyy", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
         [Required]

@@ -12,11 +12,13 @@ namespace Project_GuateFinanzas.Models
         [CreditCard]
         [Display(Name = "Number Credit Card")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string ID { get; set; }
+        public Int64 ID { get; set; }
 
+        [Required]
         [Display(Name = "DPI")]
-        public int PersonID { get; set; }
+        public Int64 PersonID { get; set; }
 
+        [Required]
         [StringLength(8, MinimumLength = 4)]
         public string Pin { get; set; }
 

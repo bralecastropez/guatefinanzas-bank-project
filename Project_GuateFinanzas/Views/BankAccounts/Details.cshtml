@@ -1,0 +1,91 @@
+﻿@model Project_GuateFinanzas.Models.BankAccount
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BankAccount</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Person.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LRN1st)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LRN1st)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LRNP1st)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LRNP1st)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LRN2nd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LRN2nd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LRNP2nd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LRNP2nd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

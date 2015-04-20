@@ -10,19 +10,25 @@ namespace Project_GuateFinanzas.Models
     {
         public int ID { get; set; }
 
+        [Required]
         [Display(Name = "Movement date")]
         [DisplayFormat(DataFormatString = "hh:ss:dd-MM-yyyy", ApplyFormatInEditMode = true)]
         public DateTime MovementDate { get; set; }
 
+        [Required]
         public double Balance { get; set; }
 
+        [Required]
         public double Amount { get; set; }
 
+        [Required]
         public Int64 AccountID { get; set; }
 
+        [Required]
         [Display(Name = "Transaction type")]
         public Enumeration.TypeAccountActivity MovementType { get; set;}
 
+        [Required]
         [Display(Name = "Transaction state")]
         public Enumeration.ActivityStatus ActivityState { get; set; }
 
@@ -32,7 +38,13 @@ namespace Project_GuateFinanzas.Models
         [Display(Name = "Check number or reference")]
         public Int64? CheckNumber { get; set; }
 
+        public Int64? DebitCardNum { get; set; }
+
+        [Required]
         [StringLength(50,MinimumLength = 10)]
         public string Location { get; set; }
+
+        public virtual BankAccount BankAccount { get; set; }
+        public virtual DebitCard DebitCard { get; set; }
     }
 }

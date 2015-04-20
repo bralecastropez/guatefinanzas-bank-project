@@ -69,6 +69,6 @@ C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\bin\e
 C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\bin\es\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\obj\Debug\Project_GuateFinanzas.csprojResolveAssemblyReference.cache
 C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\obj\Debug\Project_GuateFinanzas.dll
 C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\obj\Debug\Project_GuateFinanzas.pdb
+C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\obj\Debug\Project_GuateFinanzas.csprojResolveAssemblyReference.cache

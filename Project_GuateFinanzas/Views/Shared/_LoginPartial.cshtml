@@ -6,8 +6,14 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
+        @*<li>
+            @Html.ActionLink("Persons", "Index", "Persons", routeValues: null, htmlAttributes: new { title = "Overview" })
+        </li>
         <li>
-            @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Administrar" })
+            @Html.ActionLink("Bank Accounts", "Index", "BankAccounts", routeValues: null, htmlAttributes: new { title = "Overview" })
+        </li>*@
+        <li>
+            @Html.ActionLink("Welcome " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Administrar" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
     </ul>

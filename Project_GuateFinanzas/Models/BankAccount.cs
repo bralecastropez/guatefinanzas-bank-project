@@ -18,10 +18,12 @@ namespace Project_GuateFinanzas.Models
         [Display(Name = "DPI")]
         public Int64 PersonID { get; set; }
 
+        [Required]
         [StringLength(50, MinimumLength = 5)]
         [Display(Name = "Account Name")]
         public string Name { get; set; }
 
+        [Required]
         public double Balance { get; set; }
 
         [Required]
