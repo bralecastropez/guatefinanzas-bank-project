@@ -6,13 +6,18 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+
 using Project_GuateFinanzas.Models;
+using Project_GuateFinanzas.Helpers;
 
 namespace Project_GuateFinanzas.Controllers
 {
     public class BankAccountsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private EnumHelper<Enumeration.AccountType> EhActTyp = new EnumHelper<Enumeration.AccountType>();
+        private EnumHelper<Enumeration.State> EhSt = new EnumHelper<Enumeration.State>();
+        private BankAcHelper BacHelper = new BankAcHelper();
 
         // GET: /BankAccounts/
         public ActionResult Index()
@@ -40,8 +45,8 @@ namespace Project_GuateFinanzas.Controllers
         public ActionResult Create()
         {
             ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name");
-            ViewBag.Type = new Enumeration.AccountType();
-            ViewBag.State = new Enumeration.State();
+            ViewBag.Type = new SelectList(EhActTyp.GetEnumValues(), "Value", "Text");
+            ViewBag.State = new SelectList(EhSt.GetEnumValues(), "Value", "Text");
             return View();
         }
 
@@ -50,16 +55,26 @@ namespace Project_GuateFinanzas.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,PersonID,Name,Balance,Type,State,LRN1st,LRNP1st,LRN2nd,LRNP2nd")] BankAccount bankaccount)
+        public ActionResult Create([Bind(Include="PersonID,Name,Balance,Type,State,LRN1st,LRNP1st,LRN2nd,LRNP2nd")] BankAccount bankaccount)
         {
             if (ModelState.IsValid)
             {
+                if (bankaccount.Type == Enumeration.AccountType.Monetary)
+                {
+                    bankaccount.ID = BacHelper.GetIDMonetaryAccount();
+                }
+                else 
+                {
+                    bankaccount.ID = BacHelper.GetIDSavingAccount();
+                }
                 db.BankAccounts.Add(bankaccount);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name", bankaccount.PersonID);
+            ViewBag.Type = new SelectList(EhActTyp.GetEnumValues(), "Value", "Text", EhActTyp.GetIDByName(bankaccount.Type.ToString()));
+            ViewBag.State = new SelectList(EhSt.GetEnumValues(), "Value", "Text", EhSt.GetIDByName(bankaccount.State.ToString()));
             return View(bankaccount);
         }
 
@@ -75,7 +90,11 @@ namespace Project_GuateFinanzas.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name", bankaccount.PersonID);
+            ViewBag.Type = new SelectList(EhActTyp.GetEnumValues(), "Value", "Text", EhActTyp.GetIDByName(bankaccount.Type.ToString()));
+            ViewBag.State = new SelectList(EhSt.GetEnumValues(), "Value", "Text", EhSt.GetIDByName(bankaccount.State.ToString()));
+
             return View(bankaccount);
         }
 
@@ -84,7 +103,7 @@ namespace Project_GuateFinanzas.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,PersonID,Name,Balance,Type,State,LRN1st,LRNP1st,LRN2nd,LRNP2nd")] BankAccount bankaccount)
+        public ActionResult Edit([Bind(Include="PersonID,Name,Balance,Type,State,LRN1st,LRNP1st,LRN2nd,LRNP2nd")] BankAccount bankaccount)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +111,11 @@ namespace Project_GuateFinanzas.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name", bankaccount.PersonID);
+            ViewBag.Type = new SelectList(EhActTyp.GetEnumValues(), "Value", "Text", EhActTyp.GetIDByName(bankaccount.Type.ToString()));
+            ViewBag.State = new SelectList(EhSt.GetEnumValues(), "Value", "Text", EhSt.GetIDByName(bankaccount.State.ToString()));
+
             return View(bankaccount);
         }
 
