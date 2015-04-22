@@ -20,7 +20,7 @@ namespace Project_GuateFinanzas.Helpers
         public int GetIDByName(string name)
         {
             var count = 0;
-            var thisEnum = Enum.GetValues(typeof(T));
+            var thisEnum = Enum.GetNames(typeof(T));
 
             foreach(var item in thisEnum)
             {
@@ -28,7 +28,7 @@ namespace Project_GuateFinanzas.Helpers
                 {
                     return count;
                 }
-                    count++;
+                count++;
             }
             return 0;
         }

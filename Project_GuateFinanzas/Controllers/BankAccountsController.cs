@@ -103,7 +103,7 @@ namespace Project_GuateFinanzas.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="PersonID,Name,Balance,Type,State,LRN1st,LRNP1st,LRN2nd,LRNP2nd")] BankAccount bankaccount)
+        public ActionResult Edit([Bind(Include="ID,PersonID,Name,Balance,Type,State,LRN1st,LRNP1st,LRN2nd,LRNP2nd")] BankAccount bankaccount)
         {
             if (ModelState.IsValid)
             {
