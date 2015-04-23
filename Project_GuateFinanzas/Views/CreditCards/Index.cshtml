@@ -1,17 +1,20 @@
 ﻿@model IEnumerable<Project_GuateFinanzas.Models.CreditCard>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Credit Cards List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Credit Cards List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Person.Name)
         </th>
@@ -38,6 +41,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Person.Name)
         </td>

@@ -6,13 +6,18 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+
 using Project_GuateFinanzas.Models;
+using Project_GuateFinanzas.Helpers;
 
 namespace Project_GuateFinanzas.Controllers
 {
     public class CreditCardsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private CardHelper CardHelp = new CardHelper();
+        private EnumHelper<Enumeration.CreditCardType> Eh_CC = new EnumHelper<Enumeration.CreditCardType>();
+        private EnumHelper<Enumeration.State> Eh_State = new EnumHelper<Enumeration.State>();
 
         // GET: /CreditCards/
         public ActionResult Index()
@@ -40,6 +45,9 @@ namespace Project_GuateFinanzas.Controllers
         public ActionResult Create()
         {
             ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name");
+            ViewBag.Type = new SelectList(Eh_CC.GetEnumValues(), "Value", "Text");
+            ViewBag.State = new SelectList(Eh_State.GetEnumValues(), "Value", "Text");
+
             return View();
         }
 
@@ -48,16 +56,21 @@ namespace Project_GuateFinanzas.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,PersonID,Pin,Type,State,CreditLimit,Rate,ActivationDate")] CreditCard creditcard)
+        public ActionResult Create([Bind(Include="PersonID,Pin,Type,State,CreditLimit,Rate,ActivationDate")] CreditCard creditcard)
         {
             if (ModelState.IsValid)
             {
+                //creditcard.ID = CardHelp.GetNumberCreditCard(creditcard.Type.ToString());
+                creditcard.ID = 1;
                 db.CreditCards.Add(creditcard);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name", creditcard.PersonID);
+            ViewBag.Type = new SelectList(Eh_CC.GetEnumValues(), "Value", "Text", Eh_CC.GetIDByName(creditcard.Type.ToString()));
+            ViewBag.State = new SelectList(Eh_State.GetEnumValues(), "Value", "Text", Eh_State.GetIDByName(creditcard.State.ToString()));
+
             return View(creditcard);
         }
 
@@ -73,7 +86,11 @@ namespace Project_GuateFinanzas.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name", creditcard.PersonID);
+            ViewBag.Type = new SelectList(Eh_CC.GetEnumValues(), "Value", "Text", Eh_CC.GetIDByName(creditcard.Type.ToString()));
+            ViewBag.State = new SelectList(Eh_State.GetEnumValues(), "Value", "Text", Eh_State.GetIDByName(creditcard.State.ToString()));
+
             return View(creditcard);
         }
 
@@ -90,7 +107,11 @@ namespace Project_GuateFinanzas.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name", creditcard.PersonID);
+            ViewBag.Type = new SelectList(Eh_CC.GetEnumValues(), "Value", "Text", Eh_CC.GetIDByName(creditcard.Type.ToString()));
+            ViewBag.State = new SelectList(Eh_State.GetEnumValues(), "Value", "Text", Eh_State.GetIDByName(creditcard.State.ToString()));
+
             return View(creditcard);
         }
 

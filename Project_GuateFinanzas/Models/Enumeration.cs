@@ -19,7 +19,7 @@ namespace Project_GuateFinanzas.Models
 
         public enum CreditCardType
         { 
-            Visa, MasterCard, Credomatic, AmericanExpress
+            Visa, MasterCard, Discovery, AmericanExpress
         }
 
         public enum TypeAccountActivity
@@ -40,6 +40,11 @@ namespace Project_GuateFinanzas.Models
         public enum LoanPaymentState
         { 
             Overdue, UpToDate, Unauthorized, Authorized
+        }
+
+        public enum ShelfLife
+        { 
+            OneYear, FiveYears, TenYears
         }
     }
 }
