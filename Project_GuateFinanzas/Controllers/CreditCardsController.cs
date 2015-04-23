@@ -60,8 +60,8 @@ namespace Project_GuateFinanzas.Controllers
         {
             if (ModelState.IsValid)
             {
-                //creditcard.ID = CardHelp.GetNumberCreditCard(creditcard.Type.ToString());
-                creditcard.ID = 1;
+                creditcard.ID = CardHelp.GetNumberCreditCard(creditcard.Type.ToString());
+
                 db.CreditCards.Add(creditcard);
                 db.SaveChanges();
                 return RedirectToAction("Index");

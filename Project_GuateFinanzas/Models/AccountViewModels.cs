@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project_GuateFinanzas.Models
 {
@@ -46,6 +47,10 @@ namespace Project_GuateFinanzas.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "DPI")]
+        public Int64 PersonID { get; set; }
+
+        [Required]
         [Display(Name = "Nombre de usuario")]
         public string UserName { get; set; }
 
@@ -59,5 +64,7 @@ namespace Project_GuateFinanzas.Models
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+
+        public virtual Person Person { get; set; }
     }
 }

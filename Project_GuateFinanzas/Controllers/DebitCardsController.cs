@@ -6,14 +6,18 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+
 using Project_GuateFinanzas.Models;
+using Project_GuateFinanzas.Helpers;
 
 namespace Project_GuateFinanzas.Controllers
 {
     public class DebitCardsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        private EnumHelper<Enumeration.State> Eh_Stat = new EnumHelper<Enumeration.State>();
+        private CardHelper Ch_DC = new CardHelper();
+             
         // GET: /DebitCards/
         public ActionResult Index()
         {
@@ -40,6 +44,8 @@ namespace Project_GuateFinanzas.Controllers
         public ActionResult Create()
         {
             ViewBag.BankAccountID = new SelectList(db.BankAccounts, "ID", "Name");
+            ViewBag.State = new SelectList(Eh_Stat.GetEnumValues(), "Value", "Text");
+
             return View();
         }
 
@@ -48,16 +54,19 @@ namespace Project_GuateFinanzas.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,BankAccountID,Pin,State,ActivationDate")] DebitCard debitcard)
+        public ActionResult Create([Bind(Include="BankAccountID,Pin,State,ActivationDate")] DebitCard debitcard)
         {
             if (ModelState.IsValid)
             {
+                debitcard.ID = Ch_DC.GetNumberForDebitCard();
                 db.DebitCards.Add(debitcard);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.BankAccountID = new SelectList(db.BankAccounts, "ID", "Name", debitcard.BankAccountID);
+            ViewBag.State = new SelectList(Eh_Stat.GetEnumValues(), "Value", "Text");
+
             return View(debitcard);
         }
 
@@ -73,7 +82,10 @@ namespace Project_GuateFinanzas.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.BankAccountID = new SelectList(db.BankAccounts, "ID", "Name", debitcard.BankAccountID);
+            ViewBag.State = new SelectList(Eh_Stat.GetEnumValues(), "Value", "Text", Eh_Stat.GetIDByName(debitcard.State.ToString()));
+
             return View(debitcard);
         }
 
@@ -90,7 +102,10 @@ namespace Project_GuateFinanzas.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.BankAccountID = new SelectList(db.BankAccounts, "ID", "Name", debitcard.BankAccountID);
+            ViewBag.State = new SelectList(Eh_Stat.GetEnumValues(), "Value", "Text", Eh_Stat.GetIDByName(debitcard.State.ToString()));
+
             return View(debitcard);
         }
 

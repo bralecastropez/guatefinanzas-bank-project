@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Text.RegularExpressions;
 
 namespace Project_GuateFinanzas.Helpers
 {
@@ -35,23 +36,8 @@ namespace Project_GuateFinanzas.Helpers
                     default:
                         break;
                 }
-                string String_ = Serie.Trim();
-                int St_Lenght = String_.Length;
-                int Cypher = 0;
-                int Sum = 0;
-                int Iterator = 0;
 
-                for (Iterator = 0; Iterator < St_Lenght; Iterator += 2)
-                {
-                    Cypher = int.Parse(String_.Substring(Iterator)) * 2;
-                    if (Cypher > 9)
-                    {
-                        Cypher = Cypher - 9;
-                    }
-                    Sum += Cypher;
-                }
-
-                if (Sum % 10 == 0 && Sum < 150)
+                if (ValidatorNum(Serie) == true)
                 {
                     State = true;
                     NumCard = Convert.ToInt64(Serie.Replace(" ", "").Trim());
@@ -70,6 +56,34 @@ namespace Project_GuateFinanzas.Helpers
             var FullTrace = FirstSegment + " " + SecondSegment;
 
             return Convert.ToInt64(FullTrace.Replace(" ", ""));
+        }
+
+        public bool ValidatorNum(string num)
+        {
+            num = num.Trim().Replace(" ", "");
+
+            if(Regex.IsMatch(num, @"/[^0-9 \-]+/´"))
+            {
+                return false;
+            }
+			int nCheck = 0, nDigit = 0;
+			bool bEven = false;
+
+			num = num.Replace(@"/\D/g", "");
+
+			for (var n = num.Length - 1; n >= 0; n--) {
+				var cDigit = num.Substring(n, 1);
+				nDigit = Convert.ToInt32(cDigit, 10);
+				if ( bEven ) {
+					if ( (nDigit *= 2) > 9 ) {
+						nDigit -= 9;
+					}
+				}
+				nCheck += nDigit;
+				bEven = !bEven;
+			}
+
+			return (nCheck % 10) == 0;
         }
 
         public Int64 GetFifteenNumbers()

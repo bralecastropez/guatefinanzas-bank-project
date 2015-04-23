@@ -176,7 +176,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BankAccount.cs" />
     <Compile Include="Models\CreditCard.cs" />
-    <Compile Include="Models\CreditCardPayment.cs" />
+    <Compile Include="Models\ActionCreditCard.cs" />
     <Compile Include="Models\DebitCard.cs" />
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\IdentityModels.cs" />

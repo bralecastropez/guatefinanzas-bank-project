@@ -9,7 +9,6 @@ namespace Project_GuateFinanzas.Models
 {
     public class CreditCard
     {
-        [CreditCard]
         [Display(Name = "Number Credit Card")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Int64 ID { get; set; }
