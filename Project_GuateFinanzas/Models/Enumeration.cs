@@ -7,6 +7,11 @@ namespace Project_GuateFinanzas.Models
 {
     public class Enumeration
     {
+        public enum Rol 
+        {
+            Admin, Customer
+        }
+
         public enum AccountType
         { 
            Saving, Monetary 

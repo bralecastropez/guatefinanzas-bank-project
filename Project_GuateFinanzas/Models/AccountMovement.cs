@@ -37,7 +37,7 @@ namespace Project_GuateFinanzas.Models
 
         [Display(Name = "Check number or reference")]
         public Int64? CheckNumber { get; set; }
-
+        
         public Int64? DebitCardNum { get; set; }
 
         [Required]

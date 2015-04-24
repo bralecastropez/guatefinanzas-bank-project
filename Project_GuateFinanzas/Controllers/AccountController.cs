@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 
 using Project_GuateFinanzas.Models;
+using Project_GuateFinanzas.Helpers;
 
 namespace Project_GuateFinanzas.Controllers
 {
@@ -17,6 +18,20 @@ namespace Project_GuateFinanzas.Controllers
     public class AccountController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private EnumHelper<Enumeration.Rol> Eh_Rol = new EnumHelper<Enumeration.Rol>();
+
+        
+        public RoleManager<IdentityRole> GetRoleManager(ApplicationDbContext context)
+        { 
+            RoleManager<IdentityRole> RManager = null;
+            if(RManager != null)
+            {
+                RoleStore<IdentityRole> RStore = new RoleStore<IdentityRole>(context);
+
+                RManager = new RoleManager<IdentityRole>(RStore);
+            }
+            return RManager;
+        }
 
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
@@ -71,6 +86,7 @@ namespace Project_GuateFinanzas.Controllers
         public ActionResult Register()
         {
             ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name");
+            ViewBag.Role = new SelectList(Eh_Rol.GetEnumValues(), "Value", "Text");
 
             return View();
         }
@@ -88,6 +104,8 @@ namespace Project_GuateFinanzas.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, model.Role.ToString());
+
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -99,6 +117,7 @@ namespace Project_GuateFinanzas.Controllers
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name", model.PersonID);
+            ViewBag.Role = new SelectList(Eh_Rol.GetEnumValues(), "ID", "Name", Eh_Rol.GetIDByName(model.Role.ToString()));
 
             return View(model);
         }

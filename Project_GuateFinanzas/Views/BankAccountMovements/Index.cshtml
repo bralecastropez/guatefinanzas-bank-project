@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Project_GuateFinanzas.Models.AccountMovement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MovementDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MovementType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActivityState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TargetAccountID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DebitCardNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MovementDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MovementType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActivityState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TargetAccountID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DebitCardNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

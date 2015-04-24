@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BankAccountMovementsController.cs" />
     <Compile Include="Controllers\BankAccountsController.cs" />
     <Compile Include="Controllers\CreditCardsController.cs" />
     <Compile Include="Controllers\DebitCardsController.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BankAccMovementHelper.cs" />
     <Compile Include="Helpers\BankAcHelper.cs" />
     <Compile Include="Helpers\CardHelper.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
@@ -176,7 +178,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BankAccount.cs" />
     <Compile Include="Models\CreditCard.cs" />
-    <Compile Include="Models\ActionCreditCard.cs" />
+    <Compile Include="Models\MovementCreditCard.cs" />
+    <Compile Include="Models\PaymentCreditCard.cs" />
     <Compile Include="Models\DebitCard.cs" />
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -258,6 +261,11 @@
     <Content Include="Views\Loans\Details.cshtml" />
     <Content Include="Views\Loans\Edit.cshtml" />
     <Content Include="Views\Loans\Index.cshtml" />
+    <Content Include="Views\BankAccountMovements\Create.cshtml" />
+    <Content Include="Views\BankAccountMovements\Delete.cshtml" />
+    <Content Include="Views\BankAccountMovements\Details.cshtml" />
+    <Content Include="Views\BankAccountMovements\Edit.cshtml" />
+    <Content Include="Views\BankAccountMovements\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,17 +1,23 @@
 ﻿@model IEnumerable<Project_GuateFinanzas.Models.Person>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Persons List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Persons List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>

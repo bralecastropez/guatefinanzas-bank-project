@@ -44,7 +44,7 @@ namespace Project_GuateFinanzas.Controllers
         // GET: /BankAccounts/Create
         public ActionResult Create()
         {
-            ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name");
+            ViewBag.PersonID = new SelectList(db.Persons, "ID", "FullName");
             ViewBag.Type = new SelectList(EhActTyp.GetEnumValues(), "Value", "Text");
             ViewBag.State = new SelectList(EhSt.GetEnumValues(), "Value", "Text");
             return View();
@@ -72,7 +72,7 @@ namespace Project_GuateFinanzas.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name", bankaccount.PersonID);
+            ViewBag.PersonID = new SelectList(db.Persons, "ID", "FullName", bankaccount.PersonID);
             ViewBag.Type = new SelectList(EhActTyp.GetEnumValues(), "Value", "Text", EhActTyp.GetIDByName(bankaccount.Type.ToString()));
             ViewBag.State = new SelectList(EhSt.GetEnumValues(), "Value", "Text", EhSt.GetIDByName(bankaccount.State.ToString()));
             return View(bankaccount);
@@ -91,7 +91,7 @@ namespace Project_GuateFinanzas.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name", bankaccount.PersonID);
+            ViewBag.PersonID = new SelectList(db.Persons, "ID", "FullName", bankaccount.PersonID);
             ViewBag.Type = new SelectList(EhActTyp.GetEnumValues(), "Value", "Text", EhActTyp.GetIDByName(bankaccount.Type.ToString()));
             ViewBag.State = new SelectList(EhSt.GetEnumValues(), "Value", "Text", EhSt.GetIDByName(bankaccount.State.ToString()));
 
@@ -112,7 +112,7 @@ namespace Project_GuateFinanzas.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonID = new SelectList(db.Persons, "ID", "Name", bankaccount.PersonID);
+            ViewBag.PersonID = new SelectList(db.Persons, "ID", "FullName", bankaccount.PersonID);
             ViewBag.Type = new SelectList(EhActTyp.GetEnumValues(), "Value", "Text", EhActTyp.GetIDByName(bankaccount.Type.ToString()));
             ViewBag.State = new SelectList(EhSt.GetEnumValues(), "Value", "Text", EhSt.GetIDByName(bankaccount.State.ToString()));
 

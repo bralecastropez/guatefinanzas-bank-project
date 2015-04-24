@@ -51,6 +51,9 @@ namespace Project_GuateFinanzas.Models
         public Int64 PersonID { get; set; }
 
         [Required]
+        public Enumeration.Rol Role { get; set; }
+
+        [Required]
         [Display(Name = "Nombre de usuario")]
         public string UserName { get; set; }
 

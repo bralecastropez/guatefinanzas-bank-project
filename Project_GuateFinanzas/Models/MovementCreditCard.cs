@@ -30,5 +30,4 @@ namespace Project_GuateFinanzas.Models
 
         public virtual CreditCard CreditCard { get; set; }
     }
-
 }

@@ -32,23 +32,23 @@ namespace Project_GuateFinanzas.Migrations
             //    );
             //
 
-            //if (!context.Users.Any(u => u.UserName == "admin@guatefinanzas.com.gt"))
-            //{
+            if (!context.Users.Any(u => u.UserName == "admin@guatefinanzas.com.gt"))
+            {
             //    var UStore = new UserStore<ApplicationUser>(context);
             //    var UManager = new UserManager<ApplicationUser>(UStore);
 
-            //    var RStore = new RoleStore<IdentityRole>(context);
-            //    var RManager = new RoleManager<IdentityRole>(RStore);
+                var RStore = new RoleStore<IdentityRole>(context);
+                var RManager = new RoleManager<IdentityRole>(RStore);
 
             //    var NewUser = new ApplicationUser() { UserName = "admin@guatefinanzas.com.gt" };
 
-            //    var NewRoleAdmin = new IdentityRole { Name = "Admin" };
-            //    var NewRoleCustomer = new IdentityRole { Name = "Customer" };
+                var NewRoleAdmin = new IdentityRole { Name = "Admin" };
+                var NewRoleCustomer = new IdentityRole { Name = "Customer" };
 
 
-            //    RManager.Create(NewRoleAdmin);
-            //    RManager.Create(NewRoleCustomer);
-
+                RManager.Create(NewRoleAdmin);
+                RManager.Create(NewRoleCustomer);
+                
             //    UManager.Create(NewUser, "4dmin$");
 
             //    UManager.AddToRole(NewUser.Id, "Admin");
@@ -67,7 +67,7 @@ namespace Project_GuateFinanzas.Migrations
 
             //    context.CreditCards.AddOrUpdate(ct => ct.ID,
             //        new CreditCard() { ID = 4111111111111111, PersonID = 4512526980101, Type = Enumeration.CreditCardType.MasterCard, CreditLimit = 5000, ActivationDate = DateTime.Today, State = Enumeration.State.Active, Rate = 20, Pin = "98562" });
-            //}
+            }
         }
     }
 }
