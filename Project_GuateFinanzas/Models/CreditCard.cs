@@ -33,16 +33,6 @@ namespace Project_GuateFinanzas.Models
         [Required]
         public int Rate { get; set; }
 
-        //[Display(Name = "Payment Due Date")]
-        //public DateTime PaymentDueDate 
-        //{  
-        //    get
-        //    {
-        //        if()
-        //        {}
-        //    }
-        //}
-
         [DataType(DataType.Date)]
         [Display(Name = "Activation Date")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
@@ -63,11 +53,8 @@ namespace Project_GuateFinanzas.Models
 
         public virtual Person Person { get; set; }
         public virtual ICollection<MovementCreditCard> MovementsCC { get; set; }
-    }
 
-    public class ManageStateCreditCard : RequestChangeState
-    {
         //Request Change State Credit Card
-        public virtual ICollection<ManageStateCreditCard> RequestCSCC { get; set; }
+        public virtual ICollection<RequestChangeState> RequestCSCC { get; set; }
     }
 }

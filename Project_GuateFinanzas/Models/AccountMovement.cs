@@ -24,11 +24,9 @@ namespace Project_GuateFinanzas.Models
         [Required]
         public Int64 AccountID { get; set; }
 
-        [Required]
         [Display(Name = "Transaction type")]
         public Enumeration.TypeAccountActivity MovementType { get; set;}
 
-        [Required]
         [Display(Name = "Transaction state")]
         public Enumeration.ActivityStatus ActivityState { get; set; }
 
@@ -46,5 +44,8 @@ namespace Project_GuateFinanzas.Models
 
         public virtual BankAccount BankAccount { get; set; }
         public virtual DebitCard DebitCard { get; set; }
+
+        //Request Change State Bank Account
+        public virtual ICollection<RequestChangeState> RequestCSBA { get; set; }
     }
 }

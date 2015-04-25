@@ -32,15 +32,15 @@ namespace Project_GuateFinanzas.Migrations
             //    );
             //
 
-            if (!context.Users.Any(u => u.UserName == "admin@guatefinanzas.com.gt"))
+            if (!context.Users.Any(u => u.UserName == "B2012442"))
             {
-            //    var UStore = new UserStore<ApplicationUser>(context);
-            //    var UManager = new UserManager<ApplicationUser>(UStore);
+                var UStore = new UserStore<ApplicationUser>(context);
+                var UManager = new UserManager<ApplicationUser>(UStore);
 
                 var RStore = new RoleStore<IdentityRole>(context);
                 var RManager = new RoleManager<IdentityRole>(RStore);
 
-            //    var NewUser = new ApplicationUser() { UserName = "admin@guatefinanzas.com.gt" };
+                var NewUser = new ApplicationUser() { UserName = "B2012442" };
 
                 var NewRoleAdmin = new IdentityRole { Name = "Admin" };
                 var NewRoleCustomer = new IdentityRole { Name = "Customer" };
@@ -48,10 +48,10 @@ namespace Project_GuateFinanzas.Migrations
 
                 RManager.Create(NewRoleAdmin);
                 RManager.Create(NewRoleCustomer);
-                
-            //    UManager.Create(NewUser, "4dmin$");
 
-            //    UManager.AddToRole(NewUser.Id, "Admin");
+                UManager.Create(NewUser, "4dmin$");
+
+                UManager.AddToRole(NewUser.Id, "Admin");
 
             //    context.Persons.AddOrUpdate(c => c.ID,
             //        new Person() { ID = 3473875940101, Name = "Bryam", SurName = "Paniagua", Email = "bpaniagua@guatefinanzas.com.gt", Address = "zone 7", PhoneNumber = "54526031"},

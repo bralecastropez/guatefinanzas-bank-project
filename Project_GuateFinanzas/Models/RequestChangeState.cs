@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Project_GuateFinanzas.Models
 {
-    public abstract class RequestChangeState
+    public class RequestChangeState
     {
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

@@ -41,20 +41,12 @@ namespace Project_GuateFinanzas.Controllers
         }
 
         // GET: /BankAccountMovements/Create
-        public ActionResult Create(string action)
+        public ActionResult Create(string type)
         {
             ViewBag.AccountID = new SelectList(db.BankAccounts, "ID", "Name");
-            //ViewBag.TargetAccountID = null;
-            //ViewBag.DebitMove = false;
-            //ViewBag.CheckMove = false;
-
-            //if(action == "Trasfer")
-            //    ViewBag.TargetAccountID = new SelectList(db.BankAccounts, "ID", "Name");
-            //if(action == "DebitWithdrawal")
-            //    ViewBag.DebitMove = true;
-            //if (action == "Check")
-            //    ViewBag.CheckMove = true;
-            ViewBag.MoveType = action;
+            ViewBag.MoveType = type;
+            if (type == "DebitCardWithdrawal")
+                ViewBag.DebitCards = new SelectList(db.DebitCards, "ID", "Name");
 
             return View();
         }
@@ -64,24 +56,24 @@ namespace Project_GuateFinanzas.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,MovementDate,Balance,Amount,AccountID,TargetAccountID,CheckNumber,DebitCardNum,Location")] AccountMovement accountmovement, string action)
+        public ActionResult Create([Bind(Include = "ID,MovementDate,Balance,Amount,AccountID,TargetAccountID,CheckNumber,DebitCardNum,Location")] AccountMovement accountmovement, string type)
         {
-            if (action == "Deposit")
+            if (type == "Deposit")
             {
                 accountmovement.MovementType = Enumeration.TypeAccountActivity.Deposit;
             }
-            if(action == "Withdraw")
+            if(type == "Withdraw")
             {
                 accountmovement.MovementType = Enumeration.TypeAccountActivity.Withdraw;
             }
-            if(action == "DebitCardWithdrawal")
+            if(type == "DebitCardWithdrawal")
             {
                 accountmovement.MovementType = Enumeration.TypeAccountActivity.DebitCardWithdrawal;
             }
-            if(action == "Transfer")
+            if(type == "Transfer")
             {
                 accountmovement.MovementType = Enumeration.TypeAccountActivity.Transfer;
-                action = "Trasfer";
+                type = "Trasfer";
             }
             if (ModelState.IsValid)
             {
@@ -93,7 +85,7 @@ namespace Project_GuateFinanzas.Controllers
                 {
                     if (bankAccount.Balance >= accountmovement.Amount)
                     {
-                        if (action == "Trasfer")
+                        if (type == "Trasfer")
                         {
                             var TargetAccount = db.BankAccounts.SingleOrDefault(ta => ta.ID == accountmovement.TargetAccountID);
                             TargetAccount.Balance += accountmovement.Amount;
@@ -114,17 +106,9 @@ namespace Project_GuateFinanzas.Controllers
             }
 
             ViewBag.AccountID = new SelectList(db.BankAccounts, "ID", "Name", accountmovement.AccountID);
-            ViewBag.TargetAccountID = null;
-            ViewBag.DebitMove = false;
-            ViewBag.CheckMove = false;
 
-            if (action == "Transaction")
-                ViewBag.TargetAccountID = new SelectList(db.BankAccounts.Select(s => s.ID != accountmovement.AccountID), "ID", "Name", accountmovement.TargetAccountID);
-            
-            if (action == "DebitCard")
-                ViewBag.DebitMove = true;
-            if (action == "Check")
-                ViewBag.CheckMove = true;
+            if (type == "DebitCardWithdrawal")
+                ViewBag.DebitCards = new SelectList(db.DebitCards, "ID", "Name", accountmovement.TargetAccountID);
 
             return View(accountmovement);
         }

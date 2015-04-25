@@ -71,7 +71,6 @@ C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\bin\e
 C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\obj\Debug\Project_GuateFinanzas.dll
 C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\obj\Debug\Project_GuateFinanzas.pdb
-C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\obj\Debug\Project_GuateFinanzas.csprojResolveAssemblyReference.cache
 C:\Users\Informatica\Desktop\BLPR\C#\GUATEFINANZAS\guatefinanzas-bank-project\Project_GuateFinanzas\bin\Project_GuateFinanzas.dll.config
 C:\Users\Informatica\Desktop\BLPR\C#\GUATEFINANZAS\guatefinanzas-bank-project\Project_GuateFinanzas\bin\Project_GuateFinanzas.dll
 C:\Users\Informatica\Desktop\BLPR\C#\GUATEFINANZAS\guatefinanzas-bank-project\Project_GuateFinanzas\bin\Project_GuateFinanzas.pdb

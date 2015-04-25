@@ -59,10 +59,4 @@ namespace Project_GuateFinanzas.Models
         public virtual ICollection<AccountMovement> AccountMovements { get; set; }
         public virtual ICollection<Loan> Loans { get; set; }
     }
-
-    public class ManageStateAccount : RequestChangeState
-    {
-        //Request Change State Bank Account
-        public virtual ICollection<ManageStateAccount> RequestCSBA { get; set; }
-    }
 }

@@ -45,11 +45,8 @@ namespace Project_GuateFinanzas.Models
 
         public virtual BankAccount BankAccount { get; set; }
         public virtual ICollection<AccountMovement> DebitCardMovements { get; set; }
-    }
 
-    public class ManageStateDebitCard : RequestChangeState
-    {
         //Request Change State Debit Card
-        public virtual ICollection<ManageStateDebitCard> RequestCSDC { get; set; }
+        public virtual ICollection<RequestChangeState> RequestCSDC { get; set; }
     }
 }

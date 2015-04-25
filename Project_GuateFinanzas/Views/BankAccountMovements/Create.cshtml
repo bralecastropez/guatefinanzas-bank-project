@@ -10,7 +10,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm(new { action = ViewBag.MoveType }))
+@using (Html.BeginForm(new { type = ViewBag.MoveType }))
 {
     @Html.AntiForgeryToken()
     
@@ -18,7 +18,6 @@
         <h4>AccountMovement</h4>
         <hr />
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.MovementType)
 
         @if (ViewBag.MoveType == "Deposit" || ViewBag.MoveType == "Withdraw")
         { 
@@ -63,9 +62,9 @@
         @if (ViewBag.MoveType == "Transfer")
         {
             <div class="form-group">
-                @Html.LabelFor(model => model.TargetAccountID, "TargetAccountID", new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.TargetAccountID, "AccountID", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("TargetAccountID", String.Empty)
+                    @Html.DropDownList("AccountID", String.Empty)
                     @Html.ValidationMessageFor(model => model.TargetAccountID)
                 </div>
             </div>
@@ -85,9 +84,9 @@
         @if(ViewBag.MoveType == "DebitCardWithdrawal")
         {
             <div class="form-group">
-                @Html.LabelFor(model => model.DebitCardNum, "NumberDebitCard",  new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.DebitCardNum, "DebitCard",  new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("NumberDebitCard", String.Empty)
+                    @Html.DropDownList("DebitCard", String.Empty)
                     @Html.ValidationMessageFor(model => model.DebitCardNum)
                 </div>
             </div>            

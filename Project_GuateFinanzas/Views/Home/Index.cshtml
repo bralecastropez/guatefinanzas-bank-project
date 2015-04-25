@@ -93,16 +93,16 @@
         <h3>with account bank</h3>
         <ul class="list-unstyled">
             <li>
-                @Html.ActionLink("Withdraw", "Create", "BankAccountMovements",  new { action = "Withdraw" }, htmlAttributes: new { title = "Do" })
+                @Html.ActionLink("Withdraw", "Create", "BankAccountMovements", new { MoveType = "Withdraw" }, htmlAttributes: new { title = "Do" })
             </li>
             <li>
-                @Html.ActionLink("Debit Card Withdrawal", "Create", "BankAccountMovements",  new { action = "DebitCardWithdrawal" }, htmlAttributes: new { title = "Do" })
+                @Html.ActionLink("Debit Card Withdrawal", "Create", "BankAccountMovements", new { MoveType = "DebitCardWithdrawal" }, htmlAttributes: new { title = "Do" })
             </li>
             <li>
-                @Html.ActionLink("Deposit", "Create", "BankAccountMovements",  new { action = "Deposit" }, htmlAttributes: new { title = "Do" })
+                @Html.ActionLink("Deposit", "Create", "BankAccountMovements", new { MoveType = "Deposit" }, htmlAttributes: new { title = "Do" })
             </li>
             <li>
-                @Html.ActionLink("Transfer", "Create", "BankAccountMovements",  new { action = "Transfer" }, htmlAttributes: new { title = "Do" })
+                @Html.ActionLink("Transfer", "Create", "BankAccountMovements",  new { MoveType = "Transfer" }, htmlAttributes: new { title = "Do" })
             </li>
         </ul>
     </div>

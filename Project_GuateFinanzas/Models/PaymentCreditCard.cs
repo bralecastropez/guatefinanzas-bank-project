@@ -37,6 +37,6 @@ namespace Project_GuateFinanzas.Models
 
         public virtual CreditCard CreditCard { get; set; }
         public virtual ICollection<MovementCreditCard> Movements { get; set; }
-        public virtual ICollection<ManageStateCreditCard> ChangesStateCC { get; set; }
+        public virtual ICollection<RequestChangeState> ChangesStateCC { get; set; }
     }
 }
