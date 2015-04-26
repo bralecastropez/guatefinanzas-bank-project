@@ -106,7 +106,7 @@ namespace Project_GuateFinanzas.Controllers
                 {
                     UserManager.AddToRole(user.Id, model.Role.ToString());
 
-                    await SignInAsync(user, isPersistent: false);
+                    //await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
                 else

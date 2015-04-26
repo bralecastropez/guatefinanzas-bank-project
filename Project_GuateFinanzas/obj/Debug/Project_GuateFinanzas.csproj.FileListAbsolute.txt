@@ -144,3 +144,8 @@ C:\Users\Informatica\Desktop\BLPR\C#\GUATEFINANZAS\guatefinanzas-bank-project\Pr
 C:\Users\Informatica\Desktop\BLPR\C#\GUATEFINANZAS\guatefinanzas-bank-project\Project_GuateFinanzas\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\Informatica\Desktop\BLPR\C#\GUATEFINANZAS\guatefinanzas-bank-project\Project_GuateFinanzas\obj\Debug\Project_GuateFinanzas.dll
 C:\Users\Informatica\Desktop\BLPR\C#\GUATEFINANZAS\guatefinanzas-bank-project\Project_GuateFinanzas\obj\Debug\Project_GuateFinanzas.pdb
+C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\PaniaguaRodas\Desktop\Project_GuateFinanzas\Project_GuateFinanzas\obj\Debug\Project_GuateFinanzas.csprojResolveAssemblyReference.cache

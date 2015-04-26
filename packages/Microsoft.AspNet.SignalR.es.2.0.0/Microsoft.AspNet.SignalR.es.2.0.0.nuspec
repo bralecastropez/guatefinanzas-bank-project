@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.SignalR.es</id>
+    <version>2.0.0</version>
+    <title>Recursos en español para Microsoft ASP.NET SignalR</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_ESN.htm</licenseUrl>
+    <projectUrl>http://www.asp.net/signalR</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Metapaquete para los ensamblados satélite en español para ASP.NET SignalR.</description>
+    <summary>Recursos en español para el paquete Microsoft.AspNet.SignalR</summary>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <language>es</language>
+    <tags>Microsoft AspNet SignalR AspNetSignalR websockets real-time realtime comet HTTP streaming</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.SignalR.JS" version="2.0.0" />
+      <dependency id="Microsoft.AspNet.SignalR.SystemWeb.es" version="2.0.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

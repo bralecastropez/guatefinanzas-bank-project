@@ -41,12 +41,12 @@ namespace Project_GuateFinanzas.Controllers
         }
 
         // GET: /BankAccountMovements/Create
-        public ActionResult Create(string type)
+        public ActionResult Create(string MoveType)
         {
             ViewBag.AccountID = new SelectList(db.BankAccounts, "ID", "Name");
-            ViewBag.MoveType = type;
-            if (type == "DebitCardWithdrawal")
-                ViewBag.DebitCards = new SelectList(db.DebitCards, "ID", "Name");
+            ViewBag.MoveType = MoveType;
+            if (MoveType == "DebitCardWithdrawal")
+                ViewBag.DebitCards = new SelectList(db.DebitCards, "ID", "ID");
 
             return View();
         }
@@ -56,7 +56,7 @@ namespace Project_GuateFinanzas.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,MovementDate,Balance,Amount,AccountID,TargetAccountID,CheckNumber,DebitCardNum,Location")] AccountMovement accountmovement, string type)
+        public ActionResult Create([Bind(Include = "MovementDate,Balance,Amount,AccountID,TargetAccountID,CheckNumber,DebitCardNum,Location")] AccountMovement accountmovement, string type)
         {
             if (type == "Deposit")
             {
@@ -85,7 +85,7 @@ namespace Project_GuateFinanzas.Controllers
                 {
                     if (bankAccount.Balance >= accountmovement.Amount)
                     {
-                        if (type == "Trasfer")
+                        if (type == "Transfer")
                         {
                             var TargetAccount = db.BankAccounts.SingleOrDefault(ta => ta.ID == accountmovement.TargetAccountID);
                             TargetAccount.Balance += accountmovement.Amount;
@@ -108,7 +108,7 @@ namespace Project_GuateFinanzas.Controllers
             ViewBag.AccountID = new SelectList(db.BankAccounts, "ID", "Name", accountmovement.AccountID);
 
             if (type == "DebitCardWithdrawal")
-                ViewBag.DebitCards = new SelectList(db.DebitCards, "ID", "Name", accountmovement.TargetAccountID);
+                ViewBag.DebitCards = new SelectList(db.DebitCards, "ID", "ID", accountmovement.TargetAccountID);
 
             return View(accountmovement);
         }

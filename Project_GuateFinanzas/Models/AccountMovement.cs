@@ -11,6 +11,7 @@ namespace Project_GuateFinanzas.Models
         public int ID { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Movement date")]
         [DisplayFormat(DataFormatString = "hh:ss:dd-MM-yyyy", ApplyFormatInEditMode = true)]
         public DateTime MovementDate { get; set; }
@@ -31,12 +32,12 @@ namespace Project_GuateFinanzas.Models
         public Enumeration.ActivityStatus ActivityState { get; set; }
 
         [Display(Name = "Target Account")]
-        public Int64? TargetAccountID { get; set; }
+        public Int64 TargetAccountID { get; set; }
 
         [Display(Name = "Check number or reference")]
-        public Int64? CheckNumber { get; set; }
+        public Int64 CheckNumber { get; set; }
         
-        public Int64? DebitCardNum { get; set; }
+        public Int64 DebitCardNum { get; set; }
 
         [Required]
         [StringLength(50,MinimumLength = 10)]
@@ -44,6 +45,7 @@ namespace Project_GuateFinanzas.Models
 
         public virtual BankAccount BankAccount { get; set; }
         public virtual DebitCard DebitCard { get; set; }
+        public virtual bool IsChecked { get; set; }
 
         //Request Change State Bank Account
         public virtual ICollection<RequestChangeState> RequestCSBA { get; set; }

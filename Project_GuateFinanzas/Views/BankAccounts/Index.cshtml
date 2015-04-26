@@ -6,10 +6,11 @@
 }
 
 <h2>See Accounts</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if(User.IsInRole("Admin")){
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -78,9 +79,11 @@
             @Html.DisplayFor(modelItem => item.LRNP2nd)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @if(User.IsInRole("Admin")){            
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID })<p>|</p> 
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            }
         </td>
     </tr>
 }

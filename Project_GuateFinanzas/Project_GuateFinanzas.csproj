@@ -186,6 +186,7 @@
     <Compile Include="Models\AccountMovement.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BankAccount.cs" />
+    <Compile Include="Models\ChatHub.cs" />
     <Compile Include="Models\CreditCard.cs" />
     <Compile Include="Models\MovementCreditCard.cs" />
     <Compile Include="Models\PaymentCreditCard.cs" />
@@ -277,6 +278,7 @@
     <Content Include="Views\BankAccountMovements\Details.cshtml" />
     <Content Include="Views\BankAccountMovements\Edit.cshtml" />
     <Content Include="Views\BankAccountMovements\Index.cshtml" />
+    <Content Include="Views\Home\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

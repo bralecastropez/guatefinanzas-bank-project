@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.SignalR.Core.es</id>
+    <version>2.0.0</version>
+    <title>Recursos en español para Microsoft ASP.NET SignalR Core</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_ESN.htm</licenseUrl>
+    <projectUrl>http://www.asp.net/signalR</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Este paquete contiene los ensamblados satélite de español para ASP.NET SignalR Core.</description>
+    <summary>Recursos en español para el paquete Microsoft.AspNet.SignalR.Core</summary>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <language>es</language>
+    <tags>Microsoft AspNet SignalR AspNetSignalR Core</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.SignalR.Core" version="[2.0.0]" />
+    </dependencies>
+  </metadata>
+</package>
